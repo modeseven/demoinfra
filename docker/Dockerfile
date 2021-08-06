@@ -1,13 +1,8 @@
 FROM alpine/git
 
-ENV PACKAGES="\
-  py-pip \
-  jq \
-"
-
-RUN apk add --update $PACKAGES \
-  && pip install yq \
-  && rm /var/cache/apk/*
-
+RUN apk add yq
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
 ENTRYPOINT ["git"]
 CMD ["--help"]
+
+
