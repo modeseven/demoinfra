@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: smx
-          image: modeseven/movie-ui:0.1.0
+          image: modeseven/movie-ui:{{ .Values.uiImageTag }}
           ports:
             - containerPort: 80
           env:
@@ -53,7 +53,7 @@ spec:
     spec:
       containers:
         - name: movie-api
-          image: modeseven/movie-api:0.1.0
+          image: modeseven/movie-api:{{ .Values.apiImageTag }}
           ports:
             - containerPort: 8080
           env:
