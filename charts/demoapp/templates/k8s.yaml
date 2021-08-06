@@ -20,8 +20,9 @@ spec:
           image: modeseven/movie-ui:0.1.0
           ports:
             - containerPort: 80
+          env:
           - name: KEYCLOAK_HOST
-            value:  {{ .Values.keycloakHost }}
+            value: {{ .Values.keycloakHost }}
 ---
 apiVersion: v1
 kind: Service
