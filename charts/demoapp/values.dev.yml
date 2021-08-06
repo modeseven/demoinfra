@@ -1,6 +1,6 @@
 keycloakHost: https://auth.mbegley.net/auth/
 mongoHost: 192.168.1.3
-mongoPort: '31442'
+mongoPort: 31442
 
 uiImageTag: main-f37b64fb
 apiImageTag: 0.1.0
