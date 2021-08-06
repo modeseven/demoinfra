@@ -58,7 +58,7 @@ spec:
             - containerPort: 8080
           env:
           - name: MONGODB_HOST
-            value: {{ .Values.mongoHost }}
+            value: {{ quote .Values.mongoHost }}
           - name: MONGODB_PORT
             value: {{ .Values.mongoPort }}
           - name: KEYCLOAK_HOST
