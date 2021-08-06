@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: movies
   name: movie-ui
   labels:
     app: movie-ui
@@ -27,7 +26,6 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: movies
   name: movie-ui
 spec:
   selector:
@@ -40,7 +38,6 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: movies
   name: movie-api
   labels:
     app: movie-api
@@ -70,7 +67,6 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: movies
   name: movie-api
 spec:
   selector:
@@ -83,7 +79,6 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  namespace: "movies"
   name: "movies-ingress"
 spec:
   rules:
