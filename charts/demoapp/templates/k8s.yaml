@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: smx
-          image: modeseven/movie-ui:{{ .Values.uiImageTag }}
+          image: modeseven/reactfrontend:{{ .Values.uiImageTag }}
           ports:
             - containerPort: 80
           env:
