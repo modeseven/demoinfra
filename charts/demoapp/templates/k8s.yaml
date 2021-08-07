@@ -53,7 +53,7 @@ spec:
     spec:
       containers:
         - name: movie-api
-          image: modeseven/movie-api:{{ .Values.apiImageTag }}
+          image: modeseven/mongobackend:{{ .Values.apiImageTag }}
           ports:
             - containerPort: 8080
           env:
