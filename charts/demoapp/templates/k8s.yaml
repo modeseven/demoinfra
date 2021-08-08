@@ -132,6 +132,13 @@ spec:
                 name: "movie-api"
                 port:
                    number: 8080
+      - pathType: Prefix
+        path: "/keycloak"
+        backend:
+            service: 
+                name: "keycloak"
+                port:
+                   number: 8080
 
 
 
