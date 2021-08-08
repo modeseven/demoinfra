@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: "mongo-{{ .Values.env }}"
+  labels:
+    type: "local"
+spec:
+  storageClassName: "local"
+  capacity:
+    storage: "5Gi"
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/k8svolumes/{{ .Release.Name }}-{{ .Values.env }}/mongo-{{ .Values.env }}"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: "mongo-{{ .Values.env }}"
+spec:
+  volumeName: "mongo-{{ .Values.env }}"
+  storageClassName: "local"
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi
