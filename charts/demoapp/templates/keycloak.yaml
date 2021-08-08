@@ -34,7 +34,7 @@ spec:
             value: password
           - name: JDBC_PARAMS
             value: useSSL=false
-          - name: KEYCLOAK_PROXY_ADDRESS_FORWARDING
+          - name: PROXY_ADDRESS_FORWARDING
             value: "true"
 ---
 apiVersion: v1
