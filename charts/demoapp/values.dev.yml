@@ -1,5 +1,4 @@
-env: dev
-keycloakHost: https://demoapp.mbegley.net/auth
+keycloakHost: https://demoapp.mbegley.net/keycloak
 mongoHost: 192.168.1.3
 mongoPort: 31442
 uiImageTag: main-83d3641e
