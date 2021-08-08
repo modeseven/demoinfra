@@ -133,7 +133,7 @@ spec:
                 port:
                    number: 8080
       - pathType: Prefix
-        path: /auth
+        path: /keycloak
         backend:
             service: 
                 name: "keycloak"
