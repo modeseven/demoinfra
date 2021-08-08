@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
     nginx.ingress.kubernetes.io/enable-cors: 'true'
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /keycloak
 spec:
   tls:
   - hosts:
@@ -18,21 +18,21 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: /(/|$)(.*)
+        path: /
         backend:
             service: 
                 name: "movie-ui"
                 port:
                    number: 80
       - pathType: Prefix
-        path: /api(/|$)(.*)
+        path: /api
         backend:
             service: 
                 name: "movie-api"
                 port:
                    number: 8080
       - pathType: Prefix
-        path: /keycloak(/|$)(.*)
+        path: /keycloak
         backend:
             service: 
                 name: "keycloak"
