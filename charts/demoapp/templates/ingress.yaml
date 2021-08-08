@@ -18,14 +18,14 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: /
+        path: /(/|$)(.*)
         backend:
             service: 
                 name: "movie-ui"
                 port:
                    number: 80
       - pathType: Prefix
-        path: /api
+        path: /api(/|$)(.*)
         backend:
             service: 
                 name: "movie-api"
