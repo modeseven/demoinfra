@@ -2,12 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: test-server-ingress
+  namespace: demoapp
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
     nginx.ingress.kubernetes.io/enable-cors: 'true'
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    #nginx.ingress.kubernetes.io/service-upstream: "true"
 spec:
   tls:
   - hosts:
@@ -18,23 +20,57 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: /
+        path: /?(.*)
         backend:
             service: 
                 name: "movie-ui"
                 port:
-                   number: 80
+                  number: 80
       - pathType: Prefix
-        path: /api
+        path: /be/?(.*)
         backend:
             service: 
                 name: "movie-api"
                 port:
                    number: 8080
-      - pathType: Prefix
-        path: /keycloak
-        backend:
-            service: 
-                name: "keycloak"
-                port:
-                   number: 8080
+
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: test-server-ingress
+#   annotations:
+#     cert-manager.io/cluster-issuer: letsencrypt-prod
+#     kubernetes.io/ingress.class: nginx
+#     kubernetes.io/tls-acme: "true"
+#     nginx.ingress.kubernetes.io/enable-cors: 'true'
+#     nginx.ingress.kubernetes.io/rewrite-target: /
+# spec:
+#   tls:
+#   - hosts:
+#       - demoapp.mbegley.net
+#     secretName: demoapp-secret
+#   rules:
+#   - host: demoapp.mbegley.net
+#     http:
+#       paths:
+#       - pathType: Prefix
+#         path: /
+#         backend:
+#             service: 
+#                 name: "movie-ui"
+#                 port:
+#                    number: 80
+#       - pathType: Prefix
+#         path: /api
+#         backend:
+#             service: 
+#                 name: "movie-api"
+#                 port:
+#                    number: 8080
+#       - pathType: Prefix
+#         path: /keycloak
+#         backend:
+#             service: 
+#                 name: "keycloak"
+#                 port:
+#                    number: 8080
