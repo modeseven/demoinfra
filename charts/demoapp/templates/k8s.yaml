@@ -63,6 +63,8 @@ spec:
             value: {{ quote .Values.mongoPort }}
           - name: KEYCLOAK_HOST
             value: {{ .Values.keycloakHost }}
+          - name: SERVER_SERVLET_CONTEXT-PATH
+            value: "/movies-api"
 ---
 apiVersion: v1
 kind: Service
