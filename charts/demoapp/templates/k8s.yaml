@@ -22,6 +22,8 @@ spec:
           env:
           - name: KEYCLOAK_HOST
             value: {{ .Values.keycloakHost }}
+          - name: REACT_APP_OMDB_API_KEY
+            value: {{ .Values.ombikey }}            
 ---
 apiVersion: v1
 kind: Service
