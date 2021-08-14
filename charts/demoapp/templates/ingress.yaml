@@ -31,6 +31,12 @@ spec:
                 name: "movie-ui"
                 port:
                   number: 80
-
+      - pathType: Prefix
+        path: /auth
+        backend:
+            service: 
+                name: "keycloak"
+                port:
+                  number: 80
 
             
