@@ -1,9 +1,8 @@
+## https://www.cloudytuts.com/guides/kubernetes/how-to-deploy-mongodb-on-kubernetes/
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongo
-  labels:
-    app: mongo
 spec:
   replicas: 1
   selector:
@@ -15,13 +14,17 @@ spec:
         app: mongo
     spec:
       containers:
-        - name: mongo
-          image:  mongo:4.4.6
-          ports:
-            - containerPort: 27017
-          env:
-          - name: KEYCLOAK_USER
-            value: admin
+      - name: mongo
+        image:  mongo:4.4.6
+        ports:
+          - containerPort: 27017
+        volumeMounts:
+        - name: mongodb-persistent-storage
+          mountPath: /data/db
+      volumes:
+      - name: mongodb-persistent-storage
+        persistentVolumeClaim:
+          claimName: "mongo-{{ .Values.env }}"
 ---
 apiVersion: v1
 kind: Service
