@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-ui
+  labels:
+    app: movie-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: movie-ui
+  template:
+    metadata:
+      labels:
+        app: movie-ui
+    spec:
+      containers:
+        - name: smx
+          image: modeseven/reactfrontend:{{ .Values.uiImageTag }}
+          ports:
+            - containerPort: 80
+          env:
+          - name: KEYCLOAK_HOST
+            value: https://{{ .Values.hostName }}
+          - name: REACT_APP_OMDB_API_KEY
+            value: {{ .Values.ombikey }}            
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: movie-ui
+spec:
+  selector:
+    app: movie-ui
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

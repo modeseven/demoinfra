@@ -1,0 +1,7 @@
+# env config
+env: stage
+hostName: demoapp.stage.mbegley.net
+
+# Images
+uiImageTag: main-18c46199
+apiImageTag: main-81ff13c2

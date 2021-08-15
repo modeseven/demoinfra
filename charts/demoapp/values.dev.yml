@@ -1,6 +1,7 @@
-keycloakHost: https://auth.mbegley.net
-mongoHost: 192.168.1.3
-mongoPort: 31442
+# env config
+env: dev
+hostName: demoapp.mbegley.net
+
+# Images
 uiImageTag: main-18c46199
 apiImageTag: main-81ff13c2
-ombikey: "dc1a9808"
