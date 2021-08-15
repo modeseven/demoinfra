@@ -51,7 +51,7 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/{{ .Release.rootVolumeFolder }}/{{ .Release.Name }}-{{ .Values.env }}/mongo-{{ .Values.env }}"
+    path: "/{{ .Values.rootVolumeFolder }}/{{ .Release.Name }}-{{ .Values.env }}/mongo-{{ .Values.env }}"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

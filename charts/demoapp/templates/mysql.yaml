@@ -61,7 +61,7 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/{{ .Release.rootVolumeFolder }}/{{ .Release.Name }}-{{ .Values.env }}/keycloak-mysql-{{ .Values.env }}"
+    path: "/{{ .Values.rootVolumeFolder }}/{{ .Release.Name }}-{{ .Values.env }}/keycloak-mysql-{{ .Values.env }}"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
