@@ -1,7 +1,6 @@
 # env config
 env: dev
 hostName: demoapp.mbegley.net
-
 # Images
-uiImageTag: main-18c46199
+uiImageTag: main-b8a01d28
 apiImageTag: main-81ff13c2
