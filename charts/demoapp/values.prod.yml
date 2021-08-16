@@ -1,0 +1,6 @@
+# env config
+env: prod
+hostName: demoapp.mbegley.net
+# Images
+uiImageTag: v0.0.7
+apiImageTag: main-81ff13c2
