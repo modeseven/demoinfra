@@ -2,5 +2,5 @@
 env: stage
 hostName: demoapp.stage.mbegley.net
 # Images
-uiImageTag: v0.0.8
+uiImageTag: v0.0.9
 apiImageTag: main-81ff13c2
