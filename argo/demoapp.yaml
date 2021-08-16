@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demoapp-stage
+  namespace: argocd
+spec:
+  destination:
+    namespace: demoapp-stage
+    server: 'https://kubernetes.default.svc'
+  info:
+    - name: test
+      value: test
+  project: default
+  source:
+    helm:
+      valueFiles:
+        - values.stage.yml
+    path: charts/demoapp
+    repoURL: 'git@github.com:modeseven/demoinfra.git'
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
