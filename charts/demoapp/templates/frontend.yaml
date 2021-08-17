@@ -23,7 +23,11 @@ spec:
           - name: KEYCLOAK_HOST
             value: https://{{ .Values.hostName }}
           - name: REACT_APP_OMDB_API_KEY
-            value: {{ .Values.ombikey }}            
+            value: {{ .Values.ombikey }}
+          - name: ENV
+            value: {{ .Values.env }}     
+          - name: VERSION
+            value: {{ .Values.uiImageTag }}                 
 ---
 apiVersion: v1
 kind: Service
