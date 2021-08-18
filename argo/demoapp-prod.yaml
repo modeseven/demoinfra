@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: demoapp-stage
+  name: demoapp-prod
   namespace: argocd
 spec:
   destination:
-    namespace: demoapp-stage
+    namespace: demoapp-prod
     server: 'https://kubernetes.default.svc'
   info:
     - name: test
       value: test
-  project: default
+  project: demo
   source:
     helm:
       valueFiles:
-        - values.stage.yml
+        - values.prod.yml
     path: charts/demoapp
     repoURL: 'git@github.com:modeseven/demoinfra.git'
     targetRevision: HEAD
