@@ -22,16 +22,16 @@ spec:
             - containerPort: 9990
           readinessProbe:
             httpGet:
-              path: /health
-              port: 9990
+              path: /auth
+              port: 8080
             initialDelaySeconds: 15
             timeoutSeconds: 5
             periodSeconds: 8
             failureThreshold: 2
           livenessProbe:
             httpGet:
-              path: /health
-              port: 9990
+              path: /auth
+              port: 8080
             initialDelaySeconds: 20
             timeoutSeconds: 5
             periodSeconds: 8
