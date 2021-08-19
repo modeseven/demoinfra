@@ -19,7 +19,7 @@ spec:
           image: modeseven/mongobackend:{{ .Values.apiImageTag }}
           readinessProbe:
             httpGet:
-              path: /actuator/health
+              path: /movies-api/actuator/health
               port: 8080
             initialDelaySeconds: 10
             timeoutSeconds: 5
@@ -27,7 +27,7 @@ spec:
             failureThreshold: 2
           livenessProbe:
             httpGet:
-              path: /actuator/health
+              path: /movies-api/actuator/health
               port: 8080
             initialDelaySeconds: 20
             timeoutSeconds: 5

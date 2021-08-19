@@ -17,6 +17,22 @@ spec:
       containers:
         - name: smx
           image: modeseven/reactfrontend:{{ .Values.uiImageTag }}
+          readinessProbe:
+            httpGet:
+              path: /home
+              port: 80
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
+            periodSeconds: 8
+            failureThreshold: 2
+          livenessProbe:
+            httpGet:
+              path: /home
+              port: 80
+            initialDelaySeconds: 20
+            timeoutSeconds: 5
+            periodSeconds: 8
+            failureThreshold: 2
           ports:
             - containerPort: 80
           env:
