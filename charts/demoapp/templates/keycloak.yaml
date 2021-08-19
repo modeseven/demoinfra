@@ -19,7 +19,7 @@ spec:
           image: {{ .Values.keycloakImage }}
           ports:
             - containerPort: 8080
-            - containerPort: 9900
+            - containerPort: 9990
           env:
           - name: KEYCLOAK_USER
             value: admin
