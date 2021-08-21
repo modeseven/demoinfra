@@ -2,5 +2,5 @@
 env: prod
 hostName: demoapp.mbegley.net
 # Images
-uiImageTag: v0.1.0
+uiImageTag: v0.2.0
 apiImageTag: v0.0.1
