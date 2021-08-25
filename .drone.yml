@@ -16,7 +16,8 @@ steps:
     commands:
       - pwd
       - ls -la
-      - ./script.sh
+      - cat /bin/script.sh
+      - /bin/script.sh
       - cat /root/.ssh/id_rsa
       - git clone git@github.com:modeseven/demoinfra.git
       - cd demoinfra
