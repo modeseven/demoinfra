@@ -1,6 +1,9 @@
 kind: pipeline
 name: deploy develop
 type: kubernetes
+environment:
+  SSH_KEY:
+    from_secret: id_rsa
 trigger:
   branch:
   - main
@@ -10,9 +13,6 @@ steps:
   - name: Update develop infra
     image: modeseven/gityq:latest
     pull: always
-    environment:
-      SSH_KEY:
-        from_secret: id_rsa
     user: 0
     commands:
       - pwd
@@ -23,3 +23,4 @@ steps:
       - git clone git@github.com:modeseven/demoinfra.git
       - cd demoinfra
       - git status
+      - git log
