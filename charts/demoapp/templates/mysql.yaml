@@ -40,6 +40,7 @@ spec:
         ports:
         - containerPort: 3306
           name: mysql
+{{- if eq .Values.persistence.enabled true }}
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
@@ -75,3 +76,4 @@ spec:
   resources:
     requests:
       storage: 5Gi
+{{ end }}

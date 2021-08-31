@@ -37,7 +37,7 @@ spec:
             - containerPort: 80
           env:
           - name: KEYCLOAK_HOST
-            value: https://{{ .Values.hostName }}
+            value: {{ .Values.tlsEnabled | ternary "https" "http" }}://{{ .Values.hostName }}
           - name: REACT_APP_OMDB_API_KEY
             value: {{ .Values.ombikey }}
           - name: ENV

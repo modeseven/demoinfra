@@ -3,8 +3,8 @@ env: dev
 hostName: demoapp.dev.mbegley.net
 
 # Demo app Images
-uiImageTag: main-18c46199
-apiImageTag: main-81ff13c2
+uiImageTag: main-6c0d400e
+apiImageTag: main-9c61207c
 
 # most likely defaults
 mongoHost: mongo
@@ -15,3 +15,8 @@ rootVolumeFolder: k8svolumes
 keycloakImage: jboss/keycloak:14.0.0
 mongoImage: mongo:4.4.6
 mySqlImage: mysql:5.7.34
+
+tlsEnabled: true
+
+persistence:
+  enabled: true
