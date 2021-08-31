@@ -2,5 +2,5 @@
 env: dev
 hostName: demoapp.dev.mbegley.net
 # Images
-uiImageTag: main-b5e277a4
+uiImageTag: main-81d0bac8
 apiImageTag: main-9c61207c
