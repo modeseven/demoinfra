@@ -30,6 +30,28 @@ spec:
         image: {{ .Values.mongoImage }}
         ports:
           - containerPort: 27017
+        livenessProbe:
+          exec:
+            command:
+              - mongo
+              - --disableImplicitSessions
+              - --eval
+              - "db.adminCommand('ping')"
+          initialDelaySeconds: 10
+          timeoutSeconds: 5
+          periodSeconds: 8
+          failureThreshold: 2
+        readinessProbe:
+          exec:
+            command:
+              - mongo
+              - --disableImplicitSessions
+              - --eval
+              - "db.adminCommand('ping')"
+          initialDelaySeconds: 10
+          timeoutSeconds: 5
+          periodSeconds: 8
+          failureThreshold: 2
 {{- if eq .Values.persistence.enabled true }}
         volumeMounts:
         - name: mongodb-persistent-storage
@@ -38,6 +60,7 @@ spec:
       - name: mongodb-persistent-storage
         persistentVolumeClaim:
           claimName: "mongo-{{ .Values.env }}"
+
 ---
 apiVersion: v1
 kind: PersistentVolume
