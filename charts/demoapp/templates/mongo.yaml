@@ -33,25 +33,29 @@ spec:
         livenessProbe:
           exec:
             command:
-              - mongo
-              - --disableImplicitSessions
-              - --eval
-              - "db.adminCommand('ping')"
-          initialDelaySeconds: 10
+            -  echo
+            - -e
+            - "--eval \"db.adminCommand('ping')\""
+            -  \|
+            -  xargs
+            -  mongo
+          failureThreshold: 3
+          periodSeconds: 10
+          successThreshold: 1
           timeoutSeconds: 5
-          periodSeconds: 8
-          failureThreshold: 2
         readinessProbe:
           exec:
             command:
-              - mongo
-              - --disableImplicitSessions
-              - --eval
-              - "db.adminCommand('ping')"
-          initialDelaySeconds: 10
-          timeoutSeconds: 5
-          periodSeconds: 8
-          failureThreshold: 2
+            -  echo
+            - -e
+            - "--eval \"db.adminCommand('ping')\""
+            -  \|
+            -  xargs
+            -  mongo
+          failureThreshold: 3
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
 {{- if eq .Values.persistence.enabled true }}
         volumeMounts:
         - name: mongodb-persistent-storage
