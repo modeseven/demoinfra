@@ -16,6 +16,7 @@ kind: StatefulSet
 metadata:
   name: mongo
 spec:
+  serviceName: mongodb-service
   replicas: 1
   selector:
     matchLabels:
