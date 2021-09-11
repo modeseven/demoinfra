@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: demoapp-dev
+    namespace: movietalk-dev
     server: 'https://kubernetes.default.svc'
   info:
     - name: test
