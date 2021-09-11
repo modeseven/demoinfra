@@ -85,7 +85,7 @@ metadata:
 spec:
   storageClassName: "local"
   capacity:
-    storage: "5Gi"
+    storage: "1Gi"
   accessModes:
     - ReadWriteMany
   hostPath:

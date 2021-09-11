@@ -10,10 +10,12 @@ spec:
   clusterIP: None
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: mysql
 spec:
+  serviceName: mysql
+  replicas: 1
   selector:
     matchLabels:
       app: mysql
@@ -40,14 +42,36 @@ spec:
         ports:
         - containerPort: 3306
           name: mysql
+        livenessProbe:
+          exec:
+            command: ["mysqladmin", "ping"]
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+        readinessProbe:
+          exec:
+            # Check we can execute queries over TCP (skip-networking is off).
+            command: ["mysql", "-h", "127.0.0.1", "-e", "SELECT 1"]
+          initialDelaySeconds: 5
+          periodSeconds: 2
+          timeoutSeconds: 1
 {{- if eq .Values.persistence.enabled true }}
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
-      volumes:
-      - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: keycloak-mysql-{{ .Values.env }}
+  volumeClaimTemplates:
+  - metadata:
+      name: mysql-persistent-storage
+      annotations:
+        volume.beta.kubernetes.io/storage-class: "local"
+    spec:
+      volumeName: "keycloak-mysql-{{ .Values.env }}"
+      storageClassName: "local"
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 1Gi
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -58,22 +82,9 @@ metadata:
 spec:
   storageClassName: "local"
   capacity:
-    storage: "5Gi"
+    storage: "1Gi"
   accessModes:
     - ReadWriteMany
   hostPath:
     path: "/{{ .Values.rootVolumeFolder }}/{{ .Release.Name }}-{{ .Values.env }}/keycloak-mysql-{{ .Values.env }}"
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: "keycloak-mysql-{{ .Values.env }}"
-spec:
-  volumeName: "keycloak-mysql-{{ .Values.env }}"
-  storageClassName: "local"
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 5Gi
 {{ end }}
