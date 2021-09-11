@@ -1,6 +1,6 @@
 # env config
 env: dev
-hostName: demoapp.dev.mbegley.net
+hostName: movietalk.dev.mbegley.net
 # Images
 uiImageTag: main-f69bfa68
 apiImageTag: main-9c61207c
