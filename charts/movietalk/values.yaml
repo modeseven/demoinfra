@@ -3,8 +3,8 @@ env: dev
 hostName: demoapp.dev.mbegley.net
 
 # Demo app Images
-uiImageTag: main-6c0d400e
-apiImageTag: main-9c61207c
+uiImageTag: main-58fc8a33
+apiImageTag: main-baf4c5af
 
 # most likely defaults
 mongoHost: mongo
