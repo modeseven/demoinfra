@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: smx
-          image: modeseven/reactfrontend:{{ .Values.uiImageTag }}
+          image: modeseven/movietalk-ui:{{ .Values.uiImageTag }}
           readinessProbe:
             httpGet:
               path: /home

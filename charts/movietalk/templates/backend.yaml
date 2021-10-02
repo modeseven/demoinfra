@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: movie-api
-          image: modeseven/mongobackend:{{ .Values.apiImageTag }}
+          image: modeseven/movietalk-api:{{ .Values.apiImageTag }}
           readinessProbe:
             httpGet:
               path: /movies-api/actuator/health
