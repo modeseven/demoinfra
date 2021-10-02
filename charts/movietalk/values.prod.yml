@@ -1,6 +1,6 @@
 # env config
 env: prod
-hostName: demoapp.mbegley.net
+hostName: movietalk.mbegley.net
 # Images
 uiImageTag: v0.3.0
 apiImageTag: v0.0.1

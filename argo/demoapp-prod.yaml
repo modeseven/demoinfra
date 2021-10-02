@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: demoapp-prod
+  name: movietalk-prod
   namespace: argocd
 spec:
   destination:
-    namespace: demoapp-prod
+    namespace: movietalk-prod
     server: 'https://kubernetes.default.svc'
   info:
     - name: test
@@ -15,7 +15,7 @@ spec:
     helm:
       valueFiles:
         - values.prod.yml
-    path: charts/demoapp
+    path: charts/movietalk
     repoURL: 'git@github.com:modeseven/demoinfra.git'
     targetRevision: HEAD
   syncPolicy:

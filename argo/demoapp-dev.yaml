@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: demoapp-dev
+  name: movietalk-dev
   namespace: argocd
 spec:
   destination:
@@ -15,7 +15,7 @@ spec:
     helm:
       valueFiles:
         - values.dev.yml
-    path: charts/demoapp
+    path: charts/movietalk
     repoURL: 'git@github.com:modeseven/demoinfra.git'
     targetRevision: HEAD
   syncPolicy:
