@@ -14,6 +14,10 @@ spec:
       labels:
         app: movie-api
     spec:
+      initContainers:
+      - name: init-check-keycloak
+        image: busybox:1.28
+        command: ['sh', '-c', 'until nslookup keycloak; do echo waiting for keycloak; sleep 15; done;']
       containers:
         - name: movie-api
           image: modeseven/movietalk-api:{{ .Values.apiImageTag }}
