@@ -16,8 +16,9 @@ spec:
     spec:
       initContainers:
       - name: init-check-keycloak
-        image: busybox:1.28
-        command: ['sh', '-c', 'until nslookup keycloak; do echo waiting for keycloak; sleep 15; done;']
+        image: curlimages/curl:latest
+        command: ["/bin/sh","-c"]
+        args: ["while [ $(curl -sw '%{http_code}' http://keycloak -o /dev/null) -ne 200 ]; do sleep 5; echo 'Waiting for the keycloak...'; done"]
       containers:
         - name: movie-api
           image: modeseven/movietalk-api:{{ .Values.apiImageTag }}
@@ -33,7 +34,7 @@ spec:
             httpGet:
               path: /movies-api/actuator/health
               port: 8080
-            initialDelaySeconds: 20
+            initialDelaySeconds: 10
             timeoutSeconds: 5
             periodSeconds: 8
             failureThreshold: 2
