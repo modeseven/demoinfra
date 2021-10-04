@@ -1,10 +1,22 @@
-test
+# Movie Talk infrastructure
 
+## Dry run install
+``` bash
+helm install --namespace=temp --debug --dry-run --generate-name movietalk
+```
 
-helm install --debug --dry-run test demoapp
+## Debug templates
 
-helm template demoapp
+``` bash
+helm template movietalk
+```
 
-helm install --namespace=temp --set env=temp --set tlsEnabled=false --set persistence.enabled=false --set hostName="testdemo.192.168.1.150.nip.io" test-demo-app demoapp
+## To install instance via helm (in memory persistance , i.e. erased after pods deleted)
+``` bash
+kubectl create ns temp
 
+helm install --namespace=temp --set env=temp --set tlsEnabled=false --set persistence.enabled=false --set hostName="temp.192.168.1.150.nip.io" test-demo-app movietalk
+
+# uninstall
 helm uninstall --namespace=temp test-demo-app
+```
