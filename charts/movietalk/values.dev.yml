@@ -2,5 +2,5 @@
 env: dev
 hostName: movietalk.dev.mbegley.net
 # Images
-uiImageTag: main-f39d48b3
+uiImageTag: main-1d924e26
 apiImageTag: main-baf4c5af
