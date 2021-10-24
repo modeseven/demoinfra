@@ -2,5 +2,5 @@
 env: stage
 hostName: movietalk.stage.mbegley.net
 # Images
-uiImageTag: 142-main-e615a549
+uiImageTag: 144-main-b812826f
 apiImageTag: v0.0.3
