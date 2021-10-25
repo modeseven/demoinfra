@@ -1,6 +1,6 @@
 # env config
-env: prod
-hostName: movietalk.mbegley.net
+env: perf
+hostName: movietalk.perf.mbegley.net
 # Images
 uiImageTag: 1.1.2
 apiImageTag: v0.0.3

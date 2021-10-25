@@ -1,6 +1,0 @@
-# env config
-env: dev
-hostName: movietalk.dev.mbegley.net
-# Images
-uiImageTag: 190-main-5e083be8
-apiImageTag: main-baf4c5af

@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: movietalk-dev
+  name: movietalk-perf
   namespace: argocd
 spec:
   destination:
-    namespace: movietalk-dev
+    namespace: movietalk-perf
     server: 'https://kubernetes.default.svc'
   info:
     - name: test
@@ -14,7 +14,7 @@ spec:
   source:
     helm:
       valueFiles:
-        - values.dev.yml
+        - values.perf.yml
     path: charts/movietalk
     repoURL: 'git@github.com:modeseven/demoinfra.git'
     targetRevision: HEAD
