@@ -3,9 +3,9 @@
 
   | Environment                                                          | Status | URL                       |
   | ----------------------------------------------------------------- | ------- | --------------------------- |
-  | Test                                          | <img src="https://argocd.mbegley.net/api/badge?name=movietalk-test&amp;revision=true">     | [movietalk.test.mbegley.net](https://movietalk.test.mbegley.net/)
-  | Stage                            | <img src="https://argocd.mbegley.net/api/badge?name=movietalk-stage&amp;revision=true">     | [movietalk.stage.mbegley.net](https://movietalk.stage.mbegley.net/)| 
-  | Prod                                             | <img src="https://argocd.mbegley.net/api/badge?name=movietalk-prod&amp;revision=true">      |       [movietalk.mbegley.net](https://movietalk.mbegley.net/)                      |
+  | Test                                          | [<img src="https://argocd.mbegley.net/api/badge?name=movietalk-test&amp;revision=true">](https://argocd.mbegley.net/applications/movietalk-test?resource=)      | [movietalk.test.mbegley.net](https://movietalk.test.mbegley.net/)
+  | Stage                            | [<img src="https://argocd.mbegley.net/api/badge?name=movietalk-stage&amp;revision=true">](https://argocd.mbegley.net/applications/movietalk-stage?resource=)       | [movietalk.stage.mbegley.net](https://movietalk.stage.mbegley.net/)| 
+  | Prod                                             | [<img src="https://argocd.mbegley.net/api/badge?name=movietalk-prod&amp;revision=true">](https://argocd.mbegley.net/applications/movietalk-prod?resource=)     |       [movietalk.mbegley.net](https://movietalk.mbegley.net/)                      |
 
 
 
