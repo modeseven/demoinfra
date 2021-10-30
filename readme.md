@@ -20,3 +20,12 @@ helm install --namespace=temp --set env=temp --set tlsEnabled=false --set persis
 # uninstall
 helm uninstall --namespace=temp test-demo-app
 ```
+
+  | Environment                                                          | Status | URL                       |
+  | ----------------------------------------------------------------- | ------- | --------------------------- |
+  | Test                                          | <img src="https://argocd.mbegley.net/api/badge?name=movietalk-test&amp;revision=true">     | [movietalk.test.mbegley.net](https://movietalk.test.mbegley.net/)
+  | Stage                            | <img src="https://argocd.mbegley.net/api/badge?name=movietalk-stage&amp;revision=true">     | [movietalk.stage.mbegley.net](https://movietalk.stage.mbegley.net/)| 
+  | Prod                                             | <img src="https://argocd.mbegley.net/api/badge?name=movietalk-prod&amp;revision=true">      |       [movietalk.mbegley.net](https://movietalk.mbegley.net/)                      |
+
+
+
