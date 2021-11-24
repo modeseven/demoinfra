@@ -43,7 +43,9 @@ spec:
           - name: ENV
             value: {{ .Values.env }}     
           - name: VERSION
-            value: {{ .Values.uiImageTag }}                 
+            value: {{ .Values.uiImageTag }}
+          - name: API_VERSION
+            value: {{ .Values.apiImageTag }}                    
 ---
 apiVersion: v1
 kind: Service
