@@ -2,5 +2,5 @@
 env: test
 hostName: movietalk.test.mbegley.net
 # Images
-uiImageTag: 197-main-56dd70ca
+uiImageTag: 202-main-a2968e74
 apiImageTag: v0.0.3
