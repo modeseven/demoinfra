@@ -1,6 +1,6 @@
 # env config
 env: dev
-hostName: demoapp.dev.mbegley.net
+hostName: local.192.168.1.150.nip.io
 
 # Demo app Images
 uiImageTag: 1.1.5
@@ -16,7 +16,7 @@ keycloakImage: jboss/keycloak:14.0.0
 mongoImage: mongo:4.4.6
 mySqlImage: mysql:5.7.34
 
-tlsEnabled: true
+tlsEnabled: false
 
 persistence:
-  enabled: true
+  enabled: false
