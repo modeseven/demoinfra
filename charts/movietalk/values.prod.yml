@@ -2,5 +2,5 @@
 env: prod
 hostName: movietalk.mbegley.net
 # Images
-uiImageTag: 1.1.5
+uiImageTag: 1.2.0
 apiImageTag: 1.0.0
