@@ -8,8 +8,15 @@
   | Prod                                             | [<img src="https://argocd.mbegley.net/api/badge?name=movietalk-prod&amp;revision=true">](https://argocd.mbegley.net/applications/movietalk-prod?resource=)     |       [movietalk.mbegley.net](https://movietalk.mbegley.net/)                      |
 
 
+## Pipeline overview
 
+![common_gitops_pipeline](common_gitops_pipeline.png)
 
+> #### GIT Ops Technologies used
+>
+> - Git Ops Operator: __ArgoCD__
+> - CI System: __Drone.io__
+> - K8s templating: __Helm__
 
 ## Dry run install
 ``` bash
