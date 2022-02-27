@@ -67,7 +67,7 @@ spec:
       annotations:
         volume.beta.kubernetes.io/storage-class: "local"
     spec:
-      volumeName: "mongo-{{ .Values.env }}"
+      volumeName: "mongo-next-{{ .Values.env }}"
       storageClassName: "local"
       accessModes:
         - ReadWriteMany
@@ -78,7 +78,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: "mongo-{{ .Values.env }}"
+  name: "mongo-next-{{ .Values.env }}"
   labels:
     type: "local"
 spec:
@@ -88,5 +88,5 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/{{ .Values.rootVolumeFolder }}/{{ .Release.Name }}-{{ .Values.env }}/mongo-{{ .Values.env }}"
+    path: "/{{ .Values.rootVolumeFolder }}/{{ .Release.Name }}-{{ .Values.env }}/mongo-mext-{{ .Values.env }}"
 {{ end }}
