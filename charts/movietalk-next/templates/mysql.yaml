@@ -63,7 +63,7 @@ spec:
       annotations:
         volume.beta.kubernetes.io/storage-class: "local"
     spec:
-      volumeName: "keycloak-mysql-{{ .Values.env }}"
+      volumeName: "keycloak-next-mysql-{{ .Values.env }}"
       storageClassName: "local"
       accessModes:
         - ReadWriteMany
@@ -74,7 +74,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: "keycloak-mysql-{{ .Values.env }}"
+  name: "keycloak-next-mysql-{{ .Values.env }}"
   labels:
     type: "local"
 spec:
@@ -84,5 +84,5 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/{{ .Values.rootVolumeFolder }}/{{ .Release.Name }}-{{ .Values.env }}/keycloak-mysql-{{ .Values.env }}"
+    path: "/{{ .Values.rootVolumeFolder }}/{{ .Release.Name }}-{{ .Values.env }}/keycloak-next-mysql-{{ .Values.env }}"
 {{ end }}
