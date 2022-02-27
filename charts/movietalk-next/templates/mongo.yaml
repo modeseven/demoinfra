@@ -88,5 +88,5 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/{{ .Values.rootVolumeFolder }}/{{ .Release.Name }}-{{ .Values.env }}/mongo-mext-{{ .Values.env }}"
+    path: "/{{ .Values.rootVolumeFolder }}/{{ .Release.Name }}-{{ .Values.env }}/mongo-next-{{ .Values.env }}"
 {{ end }}
