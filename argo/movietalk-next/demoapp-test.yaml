@@ -10,7 +10,7 @@ spec:
   info:
     - name: test
       value: test
-  project: demo
+  project: movietalk
   source:
     helm:
       valueFiles:
